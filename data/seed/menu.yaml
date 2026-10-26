@@ -1,0 +1,323 @@
+# Osteria Verde menu (fictional data). Validate with: uv run python -m voice_agent.db.seed --check
+# price_pln is in whole PLN; the loader stores grosze (x100), see docs/plan/04-data-model.md.
+verified_by: head-chef
+verified_at: 2026-10-20
+
+# Items deliberately seeded WITHOUT allergen records -> UNKNOWN for every allergen.
+intentionally_unverified: [special-of-the-week]
+
+allergens:
+  - {code: gluten, name_en: "Cereals containing gluten", name_pl: "Zboża zawierające gluten"}
+  - {code: crustaceans, name_en: "Crustaceans", name_pl: "Skorupiaki"}
+  - {code: eggs, name_en: "Eggs", name_pl: "Jaja"}
+  - {code: fish, name_en: "Fish", name_pl: "Ryby"}
+  - {code: peanuts, name_en: "Peanuts", name_pl: "Orzeszki ziemne"}
+  - {code: soy, name_en: "Soybeans", name_pl: "Soja"}
+  - {code: milk, name_en: "Milk", name_pl: "Mleko"}
+  - {code: nuts, name_en: "Tree nuts", name_pl: "Orzechy"}
+  - {code: celery, name_en: "Celery", name_pl: "Seler"}
+  - {code: mustard, name_en: "Mustard", name_pl: "Gorczyca"}
+  - {code: sesame, name_en: "Sesame seeds", name_pl: "Nasiona sezamu"}
+  - {code: sulphites, name_en: "Sulphur dioxide and sulphites", name_pl: "Dwutlenek siarki i siarczyny"}
+  - {code: lupin, name_en: "Lupin", name_pl: "Łubin"}
+  - {code: molluscs, name_en: "Molluscs", name_pl: "Mięczaki"}
+
+# `allergens` on an ingredient is used only by the --check validator (not stored in the DB).
+ingredients:
+  - {id: anchovies, name: "anchovies", allergens: [fish]}
+  - {id: almonds, name: "almonds", allergens: [nuts]}
+  - {id: arborio-rice, name: "arborio rice"}
+  - {id: balsamic-vinegar, name: "balsamic vinegar", allergens: [sulphites]}
+  - {id: basil, name: "basil"}
+  - {id: beef, name: "beef"}
+  - {id: black-pepper, name: "black pepper"}
+  - {id: bread, name: "bread", allergens: [gluten]}
+  - {id: burrata, name: "burrata", allergens: [milk]}
+  - {id: butter, name: "butter", allergens: [milk]}
+  - {id: capers, name: "capers"}
+  - {id: carrot, name: "carrot"}
+  - {id: chicken, name: "chicken"}
+  - {id: chilli, name: "chilli"}
+  - {id: clams, name: "clams", allergens: [molluscs]}
+  - {id: cocoa, name: "cocoa"}
+  - {id: cream, name: "cream", allergens: [milk]}
+  - {id: dark-chocolate, name: "dark chocolate", allergens: [soy]}
+  - {id: eggs, name: "eggs", allergens: [eggs]}
+  - {id: egg-pasta, name: "fresh egg pasta", allergens: [gluten, eggs]}
+  - {id: espresso, name: "espresso"}
+  - {id: garlic, name: "garlic"}
+  - {id: gorgonzola, name: "gorgonzola", allergens: [milk]}
+  - {id: guanciale, name: "guanciale"}
+  - {id: lamb, name: "lamb"}
+  - {id: lemon, name: "lemon"}
+  - {id: lime, name: "lime"}
+  - {id: marsala, name: "marsala wine", allergens: [sulphites]}
+  - {id: mascarpone, name: "mascarpone", allergens: [milk]}
+  - {id: mint, name: "mint"}
+  - {id: mussels, name: "mussels", allergens: [molluscs]}
+  - {id: mustard, name: "mustard", allergens: [mustard]}
+  - {id: olive-oil, name: "olive oil"}
+  - {id: olives, name: "olives"}
+  - {id: onion, name: "onion"}
+  - {id: parmesan, name: "parmesan", allergens: [milk]}
+  - {id: parsley, name: "parsley"}
+  - {id: peanuts, name: "peanuts", allergens: [peanuts]}
+  - {id: pecorino, name: "pecorino", allergens: [milk]}
+  - {id: pine-nuts, name: "pine nuts", related_allergen_code: nuts, related_note: "Pine nuts are not classed as tree nuts, but some people with nut allergies react to them."}
+  - {id: pistachios, name: "pistachios", allergens: [nuts]}
+  - {id: polenta, name: "polenta"}
+  - {id: porcini, name: "porcini mushrooms"}
+  - {id: pork, name: "pork"}
+  - {id: potato, name: "potato"}
+  - {id: prawns, name: "prawns", allergens: [crustaceans]}
+  - {id: prosciutto, name: "prosciutto"}
+  - {id: red-wine, name: "red wine", allergens: [sulphites]}
+  - {id: ricotta, name: "ricotta", allergens: [milk]}
+  - {id: rocket, name: "rocket"}
+  - {id: rosemary, name: "rosemary"}
+  - {id: sage, name: "sage"}
+  - {id: savoiardi, name: "ladyfinger biscuits", allergens: [gluten, eggs]}
+  - {id: sea-bass, name: "sea bass", allergens: [fish]}
+  - {id: soy-sauce, name: "soy sauce", allergens: [soy, gluten]}
+  - {id: sparkling-water, name: "sparkling water"}
+  - {id: spinach, name: "spinach"}
+  - {id: squid, name: "squid", allergens: [molluscs]}
+  - {id: strawberries, name: "strawberries"}
+  - {id: sugar, name: "sugar"}
+  - {id: sun-dried-tomato, name: "sun-dried tomatoes"}
+  - {id: tomato, name: "tomato"}
+  - {id: tuna, name: "tuna", allergens: [fish]}
+  - {id: vanilla, name: "vanilla"}
+  - {id: vanilla-gelato, name: "vanilla gelato", allergens: [milk, eggs]}
+  - {id: veal, name: "veal"}
+  - {id: vegetable-stock, name: "vegetable stock", allergens: [celery]}
+  - {id: walnuts, name: "walnuts", allergens: [nuts]}
+  - {id: wheat-flour, name: "wheat flour", allergens: [gluten]}
+  - {id: wheat-pasta, name: "durum wheat pasta", allergens: [gluten]}
+  - {id: white-wine, name: "white wine", allergens: [sulphites]}
+
+items:
+  - id: bruschetta-pomodoro
+    name: "Bruschetta al Pomodoro"
+    category: starter
+    description: "Toasted bread with fresh tomatoes, garlic, basil and olive oil."
+    price_pln: 28
+    aliases: ["bruschetta", "tomato bruschetta", "tomato bread"]
+    ingredients: [bread, tomato, garlic, basil, olive-oil]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: burrata
+    name: "Burrata"
+    category: starter
+    description: "Creamy burrata with cherry tomatoes, rocket and olive oil."
+    price_pln: 42
+    aliases: ["burrata cheese", "burrata salad"]
+    ingredients: [burrata, tomato, rocket, olive-oil]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: vitello-tonnato
+    name: "Vitello Tonnato"
+    category: starter
+    description: "Thin slices of cold veal with a creamy tuna and caper sauce."
+    price_pln: 46
+    aliases: ["vitello", "veal with tuna sauce", "tonnato"]
+    ingredients: [veal, tuna, anchovies, eggs, capers, mustard]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: CONTAINS, fish: CONTAINS, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: FREE, mustard: CONTAINS, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: calamari-fritti
+    name: "Calamari Fritti"
+    category: starter
+    description: "Crispy fried squid rings with lemon."
+    price_pln: 44
+    aliases: ["calamari", "fried calamari", "fried squid"]
+    ingredients: [squid, wheat-flour, lemon]
+    allergens: {gluten: CONTAINS, crustaceans: MAY_CONTAIN, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: CONTAINS}
+
+  - id: spiedini-satay
+    name: "Chicken Skewers with Peanut Sauce"
+    category: starter
+    description: "Grilled chicken skewers with a spicy peanut and soy sauce."
+    price_pln: 39
+    aliases: ["chicken skewers", "satay", "peanut chicken"]
+    ingredients: [chicken, peanuts, soy-sauce, garlic, lime, chilli]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: CONTAINS, soy: CONTAINS, milk: FREE, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: pasta-pesto-genovese
+    name: "Pesto Genovese"
+    category: pasta
+    description: "Trofie with basil pesto, pine nuts, parmesan and potatoes."
+    price_pln: 48
+    aliases: ["pesto genovese", "green pesto", "basil pesto pasta", "green pasta"]
+    ingredients: [wheat-pasta, basil, pine-nuts, parmesan, garlic, olive-oil, potato]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: pesto-rosso
+    name: "Pesto Rosso"
+    category: pasta
+    description: "Penne with sun-dried tomato and almond pesto and pecorino."
+    price_pln: 48
+    aliases: ["red pesto", "sun-dried tomato pesto", "pesto rosso pasta"]
+    ingredients: [wheat-pasta, sun-dried-tomato, almonds, pecorino, garlic, olive-oil]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: CONTAINS, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: spaghetti-carbonara
+    name: "Spaghetti Carbonara"
+    category: pasta
+    description: "Spaghetti with egg yolk, guanciale, pecorino and black pepper."
+    price_pln: 52
+    aliases: ["carbonara", "pasta carbonara"]
+    ingredients: [wheat-pasta, eggs, guanciale, pecorino, black-pepper]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: CONTAINS, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: tagliatelle-al-ragu
+    name: "Tagliatelle al Ragù"
+    category: pasta
+    description: "Fresh egg tagliatelle with slow-cooked beef and pork ragù."
+    price_pln: 56
+    aliases: ["bolognese", "tagliatelle bolognese", "ragu"]
+    ingredients: [egg-pasta, beef, pork, tomato, vegetable-stock, carrot, onion, red-wine, parmesan]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: CONTAINS, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: CONTAINS, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: FREE}
+
+  - id: linguine-frutti-di-mare
+    name: "Linguine ai Frutti di Mare"
+    category: pasta
+    description: "Linguine with prawns, mussels and clams in white wine and garlic."
+    price_pln: 68
+    aliases: ["seafood pasta", "frutti di mare", "seafood linguine"]
+    ingredients: [wheat-pasta, prawns, mussels, clams, white-wine, garlic, chilli, parsley]
+    allergens: {gluten: CONTAINS, crustaceans: CONTAINS, eggs: FREE, fish: MAY_CONTAIN, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: CONTAINS}
+
+  - id: ravioli-ricotta-spinaci
+    name: "Ricotta and Spinach Ravioli"
+    category: pasta
+    description: "Handmade ravioli filled with ricotta and spinach in sage butter."
+    price_pln: 54
+    aliases: ["ravioli", "spinach ravioli", "ricotta ravioli"]
+    ingredients: [egg-pasta, ricotta, spinach, butter, sage, parmesan]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: CONTAINS, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: gnocchi-gorgonzola
+    name: "Gnocchi al Gorgonzola"
+    category: pasta
+    description: "Potato gnocchi in gorgonzola cream sauce with toasted walnuts."
+    price_pln: 52
+    aliases: ["gnocchi", "gorgonzola gnocchi", "blue cheese gnocchi"]
+    ingredients: [potato, wheat-flour, eggs, gorgonzola, cream, walnuts]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: CONTAINS, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: CONTAINS, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: saltimbocca
+    name: "Saltimbocca alla Romana"
+    category: main
+    description: "Veal escalopes with prosciutto and sage in white wine butter sauce."
+    price_pln: 78
+    aliases: ["saltimbocca", "veal saltimbocca"]
+    ingredients: [veal, prosciutto, sage, butter, white-wine]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: FREE}
+
+  - id: branzino-al-forno
+    name: "Branzino al Forno"
+    category: main
+    description: "Oven-baked sea bass with lemon, rosemary and roast potatoes."
+    price_pln: 84
+    is_available: false
+    aliases: ["sea bass", "baked fish", "branzino"]
+    ingredients: [sea-bass, lemon, rosemary, potato, olive-oil]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: CONTAINS, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: pollo-alla-cacciatora
+    name: "Pollo alla Cacciatora"
+    category: main
+    description: "Braised chicken with tomatoes, olives, red wine and rosemary."
+    price_pln: 64
+    aliases: ["chicken cacciatora", "hunter's chicken", "braised chicken"]
+    ingredients: [chicken, tomato, olives, onion, red-wine, rosemary, vegetable-stock]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: CONTAINS, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: FREE}
+
+  - id: risotto-ai-funghi
+    name: "Risotto ai Funghi Porcini"
+    category: main
+    description: "Creamy arborio risotto with porcini mushrooms and parmesan."
+    price_pln: 62
+    aliases: ["mushroom risotto", "porcini risotto", "risotto"]
+    ingredients: [arborio-rice, porcini, onion, white-wine, butter, parmesan, vegetable-stock]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: CONTAINS, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: FREE}
+
+  - id: tagliata-di-manzo
+    name: "Tagliata di Manzo"
+    category: main
+    description: "Sliced grilled beef steak on rocket with parmesan and balsamic."
+    price_pln: 96
+    aliases: ["steak", "beef tagliata", "sliced steak"]
+    ingredients: [beef, rocket, parmesan, balsamic-vinegar, olive-oil]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: FREE}
+
+  - id: special-of-the-week
+    name: "Chef's Special of the Week"
+    category: main
+    description: "The chef's seasonal dish; ask about this week's preparation."
+    price_pln: 72
+    aliases: ["special", "chef's special", "dish of the week"]
+    ingredients: [lamb, polenta, rosemary, red-wine]
+
+  - id: tiramisu
+    name: "Tiramisù"
+    category: dessert
+    description: "Ladyfingers soaked in espresso and marsala, layered with mascarpone cream."
+    price_pln: 32
+    aliases: ["tiramisu", "tiramisù"]
+    ingredients: [savoiardi, mascarpone, eggs, espresso, marsala, sugar, cocoa]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: CONTAINS, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: MAY_CONTAIN, celery: FREE, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: FREE}
+
+  - id: panna-cotta
+    name: "Panna Cotta"
+    category: dessert
+    description: "Vanilla cream pudding with fresh strawberry sauce."
+    price_pln: 28
+    aliases: ["panna cotta", "vanilla pudding"]
+    ingredients: [cream, sugar, vanilla, strawberries]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: cannoli-siciliani
+    name: "Cannoli Siciliani"
+    category: dessert
+    description: "Crisp pastry tubes filled with sweet ricotta, pistachios and dark chocolate."
+    price_pln: 30
+    aliases: ["cannoli", "sicilian cannoli"]
+    ingredients: [wheat-flour, ricotta, sugar, pistachios, dark-chocolate]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: CONTAINS, milk: CONTAINS, nuts: CONTAINS, celery: FREE, mustard: FREE, sesame: MAY_CONTAIN, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: affogato
+    name: "Affogato"
+    category: dessert
+    description: "Vanilla gelato drowned in a shot of hot espresso."
+    price_pln: 22
+    aliases: ["affogato al caffe", "ice cream with espresso"]
+    ingredients: [vanilla-gelato, espresso]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: CONTAINS, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: torta-al-limone
+    name: "Torta al Limone"
+    category: dessert
+    description: "Shortcrust lemon tart with a silky lemon curd."
+    price_pln: 29
+    aliases: ["lemon tart", "lemon cake"]
+    ingredients: [wheat-flour, butter, eggs, lemon, sugar]
+    allergens: {gluten: CONTAINS, crustaceans: FREE, eggs: CONTAINS, fish: FREE, peanuts: FREE, soy: FREE, milk: CONTAINS, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: limonata-della-casa
+    name: "Limonata della Casa"
+    category: drink
+    description: "House lemonade with fresh lemons, mint and sparkling water."
+    price_pln: 16
+    aliases: ["lemonade", "house lemonade"]
+    ingredients: [lemon, sugar, mint, sparkling-water]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: FREE, lupin: FREE, molluscs: FREE}
+
+  - id: vino-rosso-della-casa
+    name: "Vino Rosso della Casa"
+    category: drink
+    description: "Glass of our house red wine from Piedmont."
+    price_pln: 24
+    aliases: ["house red", "red wine", "house wine"]
+    ingredients: [red-wine]
+    allergens: {gluten: FREE, crustaceans: FREE, eggs: FREE, fish: FREE, peanuts: FREE, soy: FREE, milk: FREE, nuts: FREE, celery: FREE, mustard: FREE, sesame: FREE, sulphites: CONTAINS, lupin: FREE, molluscs: FREE}

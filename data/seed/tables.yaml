@@ -1,0 +1,14 @@
+# 12 tables: 2x2, 6x4, 3x6, 1x8 (docs/plan/04-data-model.md).
+tables:
+  - {id: T1, capacity: 2, zone: window}
+  - {id: T2, capacity: 2, zone: window}
+  - {id: T3, capacity: 4, zone: window}
+  - {id: T4, capacity: 4, zone: window}
+  - {id: T5, capacity: 4, zone: main}
+  - {id: T6, capacity: 4, zone: main}
+  - {id: T7, capacity: 4, zone: terrace}
+  - {id: T8, capacity: 4, zone: terrace}
+  - {id: T9, capacity: 6, zone: main}
+  - {id: T10, capacity: 6, zone: main}
+  - {id: T11, capacity: 6, zone: terrace}
+  - {id: T12, capacity: 8, zone: main}

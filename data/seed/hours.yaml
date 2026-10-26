@@ -1,0 +1,12 @@
+# weekday: 0 = Monday. null open_time = closed all day.
+opening_hours:
+  - {weekday: 0, open_time: null, last_seating: null, close_time: null}
+  - {weekday: 1, open_time: "12:00", last_seating: "21:00", close_time: "22:00"}
+  - {weekday: 2, open_time: "12:00", last_seating: "21:00", close_time: "22:00"}
+  - {weekday: 3, open_time: "12:00", last_seating: "21:00", close_time: "22:00"}
+  - {weekday: 4, open_time: "12:00", last_seating: "21:30", close_time: "23:00"}
+  - {weekday: 5, open_time: "12:00", last_seating: "21:30", close_time: "23:00"}
+  - {weekday: 6, open_time: "12:00", last_seating: "19:00", close_time: "21:00"}
+
+special_closures:
+  - {date: 2026-11-11, reason: "Closed for Independence Day"}

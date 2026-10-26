@@ -1,0 +1,7 @@
+# Deterministic FAQ answers (fictional). Opening hours come from hours.yaml.
+topics:
+  address: "Osteria Verde is at 12 Zielona Street in Kraków, a five-minute walk from the Main Square."
+  parking: "We have no private parking. There is a paid public car park on Zielona Street, about 100 metres away."
+  large_groups: "We take bookings for up to 8 people. For larger groups our staff will arrange a set menu with you."
+  dress_code: "There is no dress code; smart casual is perfectly fine."
+  accessibility: "The main room and the restroom are step-free. The terrace has one small step."

@@ -20,7 +20,7 @@ To jeden z kilku projektów portfolio. Rekruter spędzi w repo ~90 sekund i zoba
 | M | Cel | Time-box | Tier | Status |
 |---|---|---|---|---|
 | M0 | Bootstrap repo, tooling, CI | 0.5 d | rdzeń | ✅ |
-| M1 | Domena + DB + seed (bez LLM) | 1.5 d | rdzeń | ⬜ |
+| M1 | Domena + DB + seed (bez LLM) | 1.5 d | rdzeń | ✅ |
 | M2 | Narzędzia + agent tekstowy (CLI) + guard | 2 d | rdzeń | ⬜ |
 | M3 | Harness ewaluacyjny L1 + bramka CI | 1.5 d | rdzeń | ⬜ |
 | M3.5 | Naiwny baseline od zera (punkt odniesienia dla Pipecata) | 1 d | rdzeń | ⬜ |
