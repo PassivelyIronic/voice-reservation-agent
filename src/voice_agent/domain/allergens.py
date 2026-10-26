@@ -124,7 +124,9 @@ def lookup_allergens(conn: sqlite3.Connection, item_id: str, asked: list[str]) -
             RelatedIngredient(i.name, i.related_note)
             for i in ingredients
             if (code is not None and i.related_allergen_code == code)
-            or _normalize(term) == _normalize(i.name)
+            # By name only for ingredients with an approved customer note (e.g. pine nuts):
+            # "It does contain garlic." would be an unverified claim.
+            or (i.related_note is not None and _normalize(term) == _normalize(i.name))
         )
         status = _status(statuses.get(code)) if code is not None else None
         results.append(AllergenResult(term, code, status, related))

@@ -37,6 +37,7 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     turns_log_path: Path = Path("logs/turns.jsonl")
     tool_timeout_secs: float = 2.0
+    chat_reply_timeout_secs: float = 60.0
     fault_injection: str = ""
 
     # Tracing

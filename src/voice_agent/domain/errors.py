@@ -20,6 +20,8 @@ class ErrorCode(StrEnum):
     SLOT_TAKEN = "SLOT_TAKEN"
     # Not listed in 05: unknown item_id passed to get_allergen_info.
     ITEM_NOT_FOUND = "ITEM_NOT_FOUND"
+    # Not listed in 05: handler failure or timeout (incl. fault injection, E4).
+    TOOL_ERROR = "TOOL_ERROR"
 
 
 class DomainError(Exception):

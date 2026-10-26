@@ -95,6 +95,23 @@ def get_closure_reason(conn: sqlite3.Connection, day: date) -> str | None:
     return r["reason"] if r else None
 
 
+def get_info_answer(conn: sqlite3.Connection, topic: str) -> str | None:
+    r = conn.execute("SELECT answer FROM restaurant_info WHERE topic = ?", (topic,)).fetchone()
+    return r["answer"] if r else None
+
+
+def insert_handoff_ticket(
+    conn: sqlite3.Connection, conversation_id: str, reason: str, summary: str, created_at: str
+) -> int:
+    cur = conn.execute(
+        "INSERT INTO handoff_tickets (conversation_id, reason, summary, created_at)"
+        " VALUES (?, ?, ?, ?)",
+        (conversation_id, reason, summary, created_at),
+    )
+    assert cur.lastrowid is not None
+    return cur.lastrowid
+
+
 # --- slots, holds, reservations ---
 
 
