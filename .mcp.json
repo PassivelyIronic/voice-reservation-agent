@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "pipecat-context-hub": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["pipecat-ai-context-hub", "serve"],
+      "env": {}
+    }
+  }
+}

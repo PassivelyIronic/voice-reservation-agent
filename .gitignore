@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+*.egg-info/
+dist/
+build/
+
+# Secrets / local config
+.env
+.env.*
+!.env.example
+
+# Runtime artifacts
+logs/
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+
+# Models / audio cache
+models/
+.cache/
+
+# Node (client/, M6)
+node_modules/
+client/dist/
+
+# Editors / OS
+.vscode/
+.idea/
+.obsidian/
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json
