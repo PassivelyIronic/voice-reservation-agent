@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     # LLM
     groq_api_key: SecretStr | None = None
     groq_agent_model: str = ""
+    # 0: a 429 reaches the failover strategy at once instead of after silent client retries.
+    groq_max_retries: int = 0
     groq_simulator_model: str = "llama-3.1-8b-instant"
     gemini_api_key: SecretStr | None = None
     gemini_model: str = ""

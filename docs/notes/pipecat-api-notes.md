@@ -36,6 +36,19 @@ Pipecat **1.14.0**, checked with the Pipecat Context Hub on 2026-10-26. All impo
 - E5 needs failover on 429s, so `providers/llm.py` subclasses it (`FailoverOnTransientErrors`) and
   also switches on `ErrorFrame.category` in `RATE_LIMIT`, `QUOTA`, `CONNECTIVITY`, `SERVER`
   (`pipecat.utils.errors.ErrorCategory`). It uses the base class's `_set_active_if_available`.
+- A switch does **not** re-send the failed request ("recovery and fallback policies are left to
+  application code", `ServiceSwitcherStrategyFailover` docstring). The failed response still ends with
+  `LLMFullResponseEndFrame`, so the turn would end silently. Our strategy sets `rerun_needed`; `TextOutput`
+  then pushes an `LLMRunFrame` downstream if that response said nothing. The assistant aggregator answers an
+  `LLMRunFrame` by pushing the context upstream, so the new LLM runs the same turn (verified live: a Groq 429
+  moved the turn to Gemini).
+- `BaseOpenAILLMService.create_client` builds an `AsyncOpenAI` with the default `max_retries=2`, which
+  honours Groq's `retry-after` (~10 s), so a 429 reached the switcher 20-30 s late. `GroqWithoutClientRetries`
+  wraps the client with `with_options(max_retries=GROQ_MAX_RETRIES)` (default 0).
+- Role `developer`: `GoogleLLMService` turns non-initial developer messages into `user` messages; Groq
+  (`supports_developer_role=True`) sends them as is.
+- `GoogleLLMService` sends the lowest documented thinking level per model when none is set
+  (`gemini-3.5-flash`: `minimal`, `gemini-3.8-flash`: `low`).
 - Docs: https://docs.pipecat.ai/api-reference/server/utilities/service-switchers/service-switcher.md,
   https://docs.pipecat.ai/api-reference/server/utilities/service-switchers/llm-switcher.md
 
@@ -51,5 +64,8 @@ Pipecat **1.14.0**, checked with the Pipecat Context Hub on 2026-10-26. All impo
   https://docs.pipecat.ai/pipecat/fundamentals/interruptions.md
 
 ## Gaps
+- The failover findings above (2026-10-27) come from the installed Pipecat 1.14.0 source
+  (`pipeline/service_switcher.py`, `services/openai/base_llm.py`, `services/google/llm.py`), because the
+  Context Hub MCP was not connected that day.
 - Pipecat ships no mock LLM service. An offline test of the full text pipeline needs the replay
   cassettes planned for M3.
