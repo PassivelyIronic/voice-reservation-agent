@@ -24,6 +24,7 @@ seed: 42
 mode: scripted            # scripted | simulated
 turns:
   - user: "Hi, can I book a table for four at seven thirty tomorrow? And does your pesto have nuts? I'm allergic."
+  - user: "The Genovese one."           # "pesto" is ambiguous (Genovese vs Rosso, E12), the agent asks
   - user: "Yes, that works."
   - user: "Anna Nowak, five five five, zero one zero one."
   - user: "No, that's all, thanks."
@@ -33,8 +34,10 @@ expect:
       calls:
         - {name: check_availability, args: {date: "2026-10-27", time: "19:30", party_size: 4}}
         - {name: search_menu, args: {query: {contains: "pesto"}}}
+    - turn: 2
+      calls:
         - {name: get_allergen_info, args: {item_id: "pasta-pesto-genovese", allergens: {any_of: [["nuts"],["tree nuts"]]}}}
-    - turn: 3
+    - turn: 4
       calls:
         - {name: create_reservation, args: {customer_name: {icontains: "anna"}, phone: {digits: "5550101"}}}
   forbidden_tools: [transfer_to_human]
